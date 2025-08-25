@@ -2,13 +2,16 @@
 import Layout from "../../components/Layout.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
-const { slug } = Astro.params;
-const post = posts.find((p) => p.slug === slug);
-
-if (!post) {
-  throw new Error(`Post not found: ${slug}`);
+// Generate all possible blog post paths
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
+
+const { post } = Astro.props;
 ---
 
 <Layout title={post.data.title}>
