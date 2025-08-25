@@ -1,9 +1,10 @@
 ---
 import Layout from "../../components/Layout.astro";
-import { glob } from "astro/loaders";
 
-const posts = await glob("./*.md");
+// Use Astro.glob to get all Markdown posts in this folder
+const posts = await Astro.glob("./*.md");
 ---
+
 <Layout title="Blog | Digital Marketing Agency">
   <h1>Blog</h1>
   <ul>
