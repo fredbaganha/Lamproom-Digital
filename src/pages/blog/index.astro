@@ -2,14 +2,37 @@
 import Layout from "../../components/Layout.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
-{posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())}
+// Get and sort posts by date (newest first)
+const posts = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Function to format date like "August 25, 2025"
+const formatDate = (date) =>
+  new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+---
 
 <Layout title="Blog | Digital Marketing Agency">
   <h1>Blog</h1>
   <ul>
     {posts.map(({ slug, data }) => (
-      <li><a href={`/blog/${slug}/`}>{data.title}</a></li>
+      <li style="margin-bottom: 1.5rem;">
+        <a href={`/blog/${slug}/`} style="font-weight: bold; font-size: 1.1rem;">
+          {data.title}
+        </a>
+        <div style="color: gray; font-size: 0.9rem;">
+          {formatDate(data.date)}
+        </div>
+        {data.description && (
+          <p style="margin: 0.3rem 0 0; color: #444;">
+            {data.description}
+          </p>
+        )}
+      </li>
     ))}
   </ul>
 </Layout>
