@@ -1,8 +1,6 @@
 ---
-title: "First Post"
-date: "2025-08-20"
-description: "This is my first blog post."
+title: "My First Post"
+date: "2025-08-25"
 ---
-Hello world, this is my first blog post!
 
-
+This is my first blog post content.
