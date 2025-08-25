@@ -1,6 +1,5 @@
 ---
 title: "My Second Post"
-date: "2025-08-25"
+pubDate: 2025-08-20
+description: "This is my very first blog post!"
 ---
-
-This is my first blog post content.
