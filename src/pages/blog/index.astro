@@ -1,7 +1,7 @@
 ---
 import Layout from "../../components/Layout.astro";
 
-// Use Astro.glob to get all Markdown posts in this folder
+// Astro 4+ correct way to get all Markdown posts
 const posts = await Astro.glob("./*.md");
 ---
 
