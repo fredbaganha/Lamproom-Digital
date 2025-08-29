@@ -1,8 +1,61 @@
 ---
 import Layout from "../components/Layout.astro";
 ---
-<Layout title="Home | Digital Marketing Agency">
-  <h1>Welcome to Our Agency</h1>
-  <p>We help businesses grow through digital marketing: SEO, PPC, Social Media, and more.</p>
-  <a href="/services">Explore Services →</a>
+
+<Layout title="Our Services | Lamproom Digital" description="Explore Lamproom Digital’s SEO, PR, and digital marketing services designed for visibility and growth.">
+  <!-- Hero -->
+  <section class="bg-brand-black text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-heading mb-6">Our Services</h1>
+      <p class="text-lg md:text-xl">
+        From technical SEO to PR and performance marketing, we build visibility that lasts.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="/services/seo" class="bg-white p-6 rounded-xl shadow hover:shadow-lg block">
+          <h3 class="font-heading text-xl mb-3">Strategic Onsite SEO</h3>
+          <p>Technical SEO and structured content that drive sustainable growth.</p>
+        </a>
+
+        <a href="/services/content" class="bg-white p-6 rounded-xl shadow hover:shadow-lg block">
+          <h3 class="font-heading text-xl mb-3">Content Architecture</h3>
+          <p>Rank, convert, and build authority with smart content strategies.</p>
+        </a>
+
+        <a href="/services/pr" class="bg-white p-6 rounded-xl shadow hover:shadow-lg block">
+          <h3 class="font-heading text-xl mb-3">PR & Brand Authority</h3>
+          <p>Position your brand as an industry leader with strategic PR & backlinks.</p>
+        </a>
+
+        <a href="/services/influencers" class="bg-white p-6 rounded-xl shadow hover:shadow-lg block">
+          <h3 class="font-heading text-xl mb-3">Influencer Partnerships</h3>
+          <p>Authentic collaborations to expand your reach and credibility.</p>
+        </a>
+
+        <a href="/services/social" class="bg-white p-6 rounded-xl shadow hover:shadow-lg block">
+          <h3 class="font-heading text-xl mb-3">Organic Social</h3>
+          <p>Engage audiences and build trust with consistent, authentic content.</p>
+        </a>
+
+        <a href="/services/paid" class="bg-white p-6 rounded-xl shadow hover:shadow-lg block">
+          <h3 class="font-heading text-xl mb-3">Paid Search & Social</h3>
+          <p>Accelerate visibility with performance-driven marketing campaigns.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-yellow text-brand-black py-20 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-heading mb-6">Which service will unlock your growth?</h2>
+      <p class="text-lg mb-8">Let’s map your strategy together.</p>
+      <a href="/contact" class="btn-dark">Book a Strategy Call</a>
+    </div>
+  </section>
 </Layout>

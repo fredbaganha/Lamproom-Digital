@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-body bg-white text-brand-black;
+}
+
+h1, h2, h3, h4 {
+  @apply font-heading font-extrabold;
+}
+
+a, button {
+  @apply transition-colors;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-brand-yellow text-brand-black font-heading px-6 py-3 rounded-xl hover:bg-yellow-400;
+}
+
+.btn-dark {
+  @apply bg-brand-black text-white font-heading px-6 py-3 rounded-xl hover:bg-gray-700;
+}
