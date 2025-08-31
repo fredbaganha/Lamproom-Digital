@@ -1,5 +1,10 @@
 ---
-const { title = "Lamproom Digital", description = "Visibility is where all meaningful work starts." } = Astro.props;
+import "../styles/global.css";
+
+const {
+  title = "Lamproom Digital",
+  description = "Visibility is where all meaningful work starts.",
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -9,16 +14,15 @@ const { title = "Lamproom Digital", description = "Visibility is where all meani
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
-
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="flex flex-col min-h-screen font-body">
-
+  <body class="flex flex-col min-h-screen font-body bg-brand-eggshell text-brand-black">
     <!-- 🌐 Navbar -->
-    <header class="bg-brand-black text-white">
+    <header class="bg-brand-green text-brand-eggshell">
       <nav class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
         <!-- Logo -->
         <a href="/" class="flex items-center space-x-2">
@@ -28,11 +32,18 @@ const { title = "Lamproom Digital", description = "Visibility is where all meani
 
         <!-- Links -->
         <ul class="hidden md:flex space-x-6 font-heading">
-          <li><a href="/" class="hover:text-brand-yellow">Home</a></li>
-          <li><a href="/about" class="hover:text-brand-yellow">About</a></li>
-          <li><a href="/services" class="hover:text-brand-yellow">Services</a></li>
-          <li><a href="/blog" class="hover:text-brand-yellow">Blog</a></li>
-          <li><a href="/contact" class="btn-primary">Contact</a></li>
+          <li><a href="/" class="hover:text-brand-orange">Home</a></li>
+          <li><a href="/about" class="hover:text-brand-orange">About</a></li>
+          <li><a href="/services" class="hover:text-brand-orange">Services</a></li>
+          <li><a href="/blog" class="hover:text-brand-orange">Blog</a></li>
+          <li>
+            <a
+              href="/contact"
+              class="bg-brand-orange text-brand-eggshell px-4 py-2 rounded-lg hover:opacity-90 transition"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -43,31 +54,37 @@ const { title = "Lamproom Digital", description = "Visibility is where all meani
     </main>
 
     <!-- 🔻 Footer -->
-    <footer class="bg-brand-gray text-white py-10 mt-12">
+    <footer class="bg-brand-green text-brand-eggshell py-10 mt-12">
       <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+        <!-- About -->
         <div>
           <img src="/logo.png" alt="Lamproom Digital" class="h-10 w-auto mb-4" />
           <p class="text-sm">
-            Visibility is where all meaningful work starts.  
+            Visibility is where all meaningful work starts.<br />
             Lamproom Digital builds trust, authority, and growth.
           </p>
         </div>
+
+        <!-- Navigation -->
         <div>
           <h3 class="font-heading mb-3">Navigation</h3>
           <ul class="space-y-2 text-sm">
-            <li><a href="/" class="hover:text-brand-yellow">Home</a></li>
-            <li><a href="/about" class="hover:text-brand-yellow">About</a></li>
-            <li><a href="/services" class="hover:text-brand-yellow">Services</a></li>
-            <li><a href="/blog" class="hover:text-brand-yellow">Blog</a></li>
-            <li><a href="/contact" class="hover:text-brand-yellow">Contact</a></li>
+            <li><a href="/" class="hover:text-brand-orange">Home</a></li>
+            <li><a href="/about" class="hover:text-brand-orange">About</a></li>
+            <li><a href="/services" class="hover:text-brand-orange">Services</a></li>
+            <li><a href="/blog" class="hover:text-brand-orange">Blog</a></li>
+            <li><a href="/contact" class="hover:text-brand-orange">Contact</a></li>
           </ul>
         </div>
+
+        <!-- Contact -->
         <div>
           <h3 class="font-heading mb-3">Contact</h3>
           <p class="text-sm">📧 hello@lamproomdigital.com</p>
         </div>
       </div>
-      <div class="text-center text-xs text-gray-400 mt-6">
+
+      <div class="text-center text-xs text-brand-eggshell mt-6">
         © {new Date().getFullYear()} Lamproom Digital. All rights reserved.
       </div>
     </footer>

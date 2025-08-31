@@ -1,0 +1,35 @@
+/* src/styles/global.css */
+
+/* Reset / base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌍 Global defaults */
+body {
+  @apply bg-brand-eggshell text-brand-black font-body;
+}
+
+/* 🟠 Brand Buttons */
+@layer components {
+  .btn-primary {
+    @apply bg-brand-orange text-brand-eggshell px-4 py-2 rounded-lg font-semibold
+           transition hover:brightness-95 active:translate-y-px inline-block;
+  }
+
+  .btn-dark {
+    @apply bg-brand-green text-brand-eggshell px-5 py-3 rounded-lg font-bold
+           transition hover:brightness-110 active:translate-y-px inline-block;
+  }
+
+  .btn-light {
+    @apply bg-brand-eggshell text-brand-green px-5 py-3 rounded-lg font-bold
+           transition hover:bg-brand-brown hover:text-brand-eggshell;
+  }
+}
