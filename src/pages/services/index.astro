@@ -1,12 +1,26 @@
 ---
 import Layout from "../../components/Layout.astro";
 ---
-<Layout title="Services | Digital Marketing Agency">
-  <h1>Our Services</h1>
-  <ul>
-    <li><a href="/services/seo">SEO Optimization</a></li>
-    <li><a href="/services/social-media">Social Media Marketing</a></li>
-    <li><a href="/services/ppc">Pay-Per-Click Advertising</a></li>
-    <li><a href="/services/web-design">Web Design</a></li>
-  </ul>
+
+<Layout title="Services | Lamproom Digital">
+  <!-- Hero -->
+  <section class="bg-brand-green text-brand-eggshell py-20 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-heading mb-6">Our Services</h1>
+      <p class="text-lg md:text-xl leading-relaxed">
+        VISIBILITY IS AT THE HEART OF WHAT WE DO. IN TODAY’S DIGITAL WORLD, BRANDS CAN JUST AS EASILY GET LOST IN THE DARK.  
+        WE HELP YOU FIND YOUR VISIBILITY ACROSS THE FULL SEARCH FUNNEL, COMBINING STRATEGY, CREATIVITY, AND TECHNICAL EXPERTISE TO MAKE YOUR BRAND IMPOSSIBLE TO OVERLOOK.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="py-20 bg-brand-eggshell text-brand-black">
+    <div class="max-w-4xl mx-auto px-6 space-y-6 text-lg">
+      <a href="/services/seo" class="block hover:text-brand-green">SEO Optimisation</a>
+      <a href="/services/social" class="block hover:text-brand-green">Social Media Marketing</a>
+      <a href="/services/ppc" class="block hover:text-brand-green">Pay-Per-Click Advertising</a>
+      <a href="/services/web" class="block hover:text-brand-green">Web Design</a>
+    </div>
+  </section>
 </Layout>

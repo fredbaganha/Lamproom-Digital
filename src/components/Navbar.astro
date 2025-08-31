@@ -1,43 +1,139 @@
 ---
-import { useState } from "astro/jsx-runtime"; // Astro signals not needed for simple toggle
 ---
+<nav class="bg-brand-green text-brand-eggshell sticky top-0 z-50">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
+    <!-- Logo + Name -->
+    <a href="/" class="flex items-center space-x-2">
+      <img src="/logo.png" alt="Lamproom Digital logo" class="h-10 w-10" />
+      <span class="font-heading font-bold text-lg">Lamproom Digital</span>
+    </a>
 
-<nav class="flex items-center justify-between px-6 py-4 bg-white shadow-md">
-  <!-- Logo -->
-  <a href="/" class="text-xl font-bold text-brand-green">Lamproom</a>
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center space-x-8 font-semibold">
+      <a href="/" class="hover:text-brand-orange">Home</a>
+      <a href="/about" class="hover:text-brand-orange">About</a>
 
-  <!-- Desktop Nav -->
-  <ul class="hidden md:flex space-x-6 font-medium">
-    <li><a href="/" class="hover:text-brand-orange">Home</a></li>
-    <li><a href="/about" class="hover:text-brand-orange">About</a></li>
-    <li><a href="/services" class="hover:text-brand-orange">Services</a></li>
-    <li><a href="/blog" class="hover:text-brand-orange">Blog</a></li>
-    <li><a href="/contact" class="hover:text-brand-orange">Contact</a></li>
-  </ul>
+      <!-- Services dropdown (desktop: no hover gap + stays open) -->
+      <div class="relative group">
+        <a href="/services" class="hover:text-brand-orange">Services</a>
+        <!-- No margin between trigger and menu; use pt-2 inside to avoid hover gap -->
+        <div class="absolute left-0 top-full hidden pt-2 group-hover:block">
+          <div class="w-56 rounded-lg bg-brand-green shadow-lg py-2">
+            <a href="/services/seo" class="block px-4 py-2 hover:bg-brand-orange hover:text-white">
+              SEO Optimisation
+            </a>
+            <a href="/services/social-media" class="block px-4 py-2 hover:bg-brand-orange hover:text-white">
+              Social Media Marketing
+            </a>
+            <a href="/services/ppc" class="block px-4 py-2 hover:bg-brand-orange hover:text-white">
+              Pay-Per-Click Advertising
+            </a>
+            <a href="/services/web-design" class="block px-4 py-2 hover:bg-brand-orange hover:text-white">
+              Web Design
+            </a>
+          </div>
+        </div>
+      </div>
 
-  <!-- Mobile Hamburger -->
-  <button id="menu-btn" class="md:hidden focus:outline-none">
-    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
+      <a href="/blog" class="hover:text-brand-orange">Blog</a>
+
+      <!-- Desktop Contact CTA -->
+      <a
+        href="/contact"
+        class="rounded-full bg-brand-orange px-5 py-2.5 font-semibold text-white shadow-md hover:shadow-lg hover:bg-orange-600 transition"
+      >
+        Contact
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="focus:outline-none text-2xl" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="sr-only">Toggle menu</span>
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden flex-col px-6 pb-6 pt-2 font-semibold bg-brand-green">
+    <ul class="flex flex-col space-y-5">
+      <li><a href="/" class="hover:text-brand-orange">Home</a></li>
+      <li><a href="/about" class="hover:text-brand-orange">About</a></li>
+
+      <!-- Mobile Services: link + separate caret button to expand subitems -->
+      <li>
+        <div class="flex items-center justify-between">
+          <a href="/services" class="hover:text-brand-orange">Services</a>
+          <button
+            id="mobile-services-toggle"
+            class="p-2 -mr-2"
+            aria-expanded="false"
+            aria-controls="mobile-services-sub"
+          >
+            <svg id="chev-down" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <svg id="chev-up" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
+        </div>
+        <!-- FIXED: vertical list layout -->
+        <div id="mobile-services-sub" class="hidden mt-3 flex flex-col space-y-3">
+          <a href="/services/seo" class="hover:text-brand-orange">SEO Optimisation</a>
+          <a href="/services/social-media" class="hover:text-brand-orange">Social Media Marketing</a>
+          <a href="/services/ppc" class="hover:text-brand-orange">Pay-Per-Click Advertising</a>
+          <a href="/services/web-design" class="hover:text-brand-orange">Web Design</a>
+        </div>
+      </li>
+
+      <li><a href="/blog" class="hover:text-brand-orange">Blog</a></li>
+
+      <!-- Mobile Contact pill (not full-width) -->
+      <li>
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-full bg-brand-orange px-5 py-2.5 font-semibold text-white shadow-md hover:shadow-lg hover:bg-orange-600 transition"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Mobile main toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      iconOpen.classList.toggle('hidden', !open);
+      iconClose.classList.toggle('hidden', open);
+    });
+
+    // Mobile services sub-toggle
+    const svcBtn = document.getElementById('mobile-services-toggle');
+    const svcSub = document.getElementById('mobile-services-sub');
+    const chevDown = document.getElementById('chev-down');
+    const chevUp = document.getElementById('chev-up');
+
+    svcBtn.addEventListener('click', () => {
+      const open = svcSub.classList.contains('hidden');
+      svcSub.classList.toggle('hidden');
+      svcBtn.setAttribute('aria-expanded', String(open));
+      chevDown.classList.toggle('hidden', open);
+      chevUp.classList.toggle('hidden', !open);
+    });
+  </script>
 </nav>
-
-<!-- Mobile Nav -->
-<div id="mobile-menu" class="hidden flex-col space-y-4 px-6 py-4 bg-white shadow-md md:hidden">
-  <a href="/" class="block hover:text-brand-orange">Home</a>
-  <a href="/about" class="block hover:text-brand-orange">About</a>
-  <a href="/services" class="block hover:text-brand-orange">Services</a>
-  <a href="/blog" class="block hover:text-brand-orange">Blog</a>
-  <a href="/contact" class="block hover:text-brand-orange">Contact</a>
-</div>
-
-<script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
-
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-</script>

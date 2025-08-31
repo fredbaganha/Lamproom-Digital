@@ -2,18 +2,31 @@
 import Layout from "../components/Layout.astro";
 ---
 
-<Layout title="About | Lamproom Digital" description="Learn more about Lamproom Digital’s mission, values, and expertise.">
+<Layout 
+  title="About | Lamproom Digital" 
+  description="Learn more about Lamproom Digital’s mission, values, and expertise."
+>
   <!-- Hero -->
   <section class="bg-brand-green text-brand-eggshell py-20 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-4xl md:text-5xl font-heading mb-6">About Us</h1>
-      <p class="text-lg md:text-xl">Visibility is where all meaningful work starts.</p>
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight">
+        About Us
+      </h1>
+      <p class="text-base sm:text-lg md:text-xl mb-8">
+        Visibility is where all meaningful work starts.
+      </p>
+      <a 
+        href="/contact" 
+        class="inline-block bg-brand-orange text-brand-eggshell px-6 py-3 rounded-lg font-heading text-lg hover:opacity-90 transition"
+      >
+        Contact Us
+      </a>
     </div>
   </section>
 
   <!-- Content -->
   <section class="py-20 bg-brand-eggshell text-brand-black">
-    <div class="max-w-4xl mx-auto px-6 space-y-6">
+    <div class="max-w-4xl mx-auto px-6 space-y-8">
       <h2 class="text-2xl font-heading">Our Mission</h2>
       <p>
         At Lamproom Digital, we believe that trust and authority fuel growth.
