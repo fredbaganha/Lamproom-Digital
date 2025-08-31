@@ -1,9 +1,71 @@
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
+<nav class="bg-brand-eggshell border-b border-brand-green px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center">
+      <img 
+        src="/logo.svg" 
+        alt="Lamproom Digital" 
+        class="h-10 w-auto md:h-14"
+      />
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex space-x-6 font-heading text-brand-green">
+      <li><a href="/" class="hover:text-brand-orange">Home</a></li>
+      <li><a href="/about" class="hover:text-brand-orange">About</a></li>
+      <li><a href="/services" class="hover:text-brand-orange">Services</a></li>
+      <li><a href="/blog" class="hover:text-brand-orange">Blog</a></li>
+      <li><a href="/contact" class="hover:text-brand-orange">Contact</a></li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="menu-btn" 
+      class="md:hidden text-brand-green focus:outline-none"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div 
+    id="mobile-menu" 
+    class="hidden flex-col space-y-4 font-heading text-brand-green md:hidden mt-4 
+           opacity-0 transform -translate-y-4 transition-all duration-300 ease-in-out"
+  >
+    <a href="/" class="hover:text-brand-orange">Home</a>
+    <a href="/about" class="hover:text-brand-orange">About</a>
+    <a href="/services" class="hover:text-brand-orange">Services</a>
+    <a href="/blog" class="hover:text-brand-orange">Blog</a>
+    <a href="/contact" class="hover:text-brand-orange">Contact</a>
+  </div>
 </nav>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn.addEventListener("click", () => {
+    const isHidden = menu.classList.contains("hidden");
+
+    if (isHidden) {
+      menu.classList.remove("hidden");
+      requestAnimationFrame(() => {
+        menu.classList.remove("opacity-0", "-translate-y-4");
+        menu.classList.add("opacity-100", "translate-y-0");
+      });
+    } else {
+      menu.classList.add("opacity-0", "-translate-y-4");
+      menu.classList.remove("opacity-100", "translate-y-0");
+      menu.addEventListener(
+        "transitionend",
+        () => menu.classList.add("hidden"),
+        { once: true }
+      );
+    }
+  });
+</script>
